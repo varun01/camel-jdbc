@@ -16,17 +16,17 @@ public class UserProfileRoute extends RouteBuilder {
 	
 	@Override
 	public void configure() {
-		restConfiguration()
+		restConfiguration().component("servlet")
 		.contextPath("/camel-rest") // application context path.
 		.port(env.getProperty("server.port", "8080")) //server port
-		.bindingMode(RestBindingMode.json);
+		.bindingMode(RestBindingMode.off);
 
-		rest("/insert").produces("application/json")
-		.get("/insert-user").to("file-route");
+		rest("/insert").consumes("text/plain")
+		.get("/insert-user").route().from("file://E:/support/praveen/users/?fileName=users.txt&noop=true"). /*("file-route");*/
 		
 
-		from("file://E:/support/praveen/users/?fileName=users.txt&noop=true").routeId("file-route") //Change file path to desired location
-		.split(body().tokenize("\n"))
+		/*from("file://E:/support/praveen/users/?fileName=users.txt&noop=true").routeId("file-route") //Change file path to desired location
+*/		split(body().tokenize("\n"))
     	.streaming()
 		.process(new Processor() {
 

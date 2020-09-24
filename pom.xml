@@ -25,6 +25,11 @@
 	</properties>
 
 	<dependencies>
+		
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		     <artifactId>jaxb-api</artifactId>
+		 </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -39,13 +44,21 @@
 			<artifactId>camel-spring-boot</artifactId>
 			<version>2.17.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-servlet</artifactId>
+			<version>2.17.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jdbc</artifactId>
 			<version>2.17.0</version>
 		</dependency>
-
+		<dependency>
+		    <groupId>org.apache.camel</groupId>
+		    <artifactId>camel-jackson</artifactId>
+		    <version>2.17.0</version>
+		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

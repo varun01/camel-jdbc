@@ -20,8 +20,9 @@ public class UserProfileRoute extends RouteBuilder {
 		.component("servlet")
 		.bindingMode(RestBindingMode.off);
 
+		// http://localhost:8080/insert/insert-user
 		rest("/insert").get("/insert-user").route().transform()
-				.simple("Hello World!!").endRest().to("direct:insert");
+				.simple("Hello World!!").endRest().to("direct:insert");  
 		
 		
 		

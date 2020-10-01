@@ -39,9 +39,9 @@ public class UserProfileRoute extends RouteBuilder {
 							String[] str = text.split("\\|");
 							sql = "INSERT INTO user_details values('" + str[0].trim() + "','" + str[1].trim() + "','" + str[2].trim() + "')";
 							exchange.getIn().setBody(sql);
-							/*System.out.println(sql);*/
+							System.out.println(sql);
 						}
 					}
-				}).to("jdbc:dataSource");
+				}).to("seda:dynamicRoute");
 	}
 }
